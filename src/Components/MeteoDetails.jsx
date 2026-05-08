@@ -6,7 +6,7 @@ function MeteoDetails() {
   const params = useParams();
   const [details, setDetails] = useState("");
 
-  const fetchDetails = async () => {
+  const getCity = async () => {
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${params.cityName}&appid=822a96b5649a0776f633a8da96309795&units=metric`,
@@ -21,7 +21,7 @@ function MeteoDetails() {
   };
 
   useEffect(() => {
-    fetchDetails();
+    getCity();
   }, [params.cityName]);
 
   return (
